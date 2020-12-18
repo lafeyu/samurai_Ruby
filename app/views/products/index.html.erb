@@ -1,18 +1,25 @@
-<h1>Products#index</h1>
-<!--eachメソッドでは、コントローラから受け取った@productsに格納。
-「配列になった商品データ」を、1つずつ取り出して変数productへ代入-->
-<!--その後、product.nameといったコードで、商品の名前など各カラムの値を表示-->
-<!--Ruby on Railsでは、<%= %>で囲うことで変数の中身をそのままビュー上で表示させる-->
-<% @products.each do |product| %>
-   <%= product.name %>
-   <%= product.description %>
-   <%= product.price %>
-   <%= link_to "Show", product_path(product) %>
-   <%= link_to "Edit", edit_product_path(product) %>
-  <!--link_toメソッドを使って、削除リクエストを送信するフォームを作成-->
-   <%= link_to "Delete", product_path(product), method: :delete, data: { 
-   confirm: 'Are you sure?' }  %><!--Deleteボタンが押されたときに、本当に削除するかどうか確認---->
- <% end %>
+<div class="row">
+  <div class="col-9">
+    <div class="container mt-4">
+      <div class="row w-100">
 
- <%= link_to "New", new_product_path %>
- <!----商品データを新規作成する画面へのリンクを作成-->
+        <% @products.each do |product|%>
+        <div class="col-3">
+          <%= link_to product_path(product) do %>
+            <%= image_tag "/images/dummy.png", class: "img-thumbnail"%>
+          <% end %>
+          <div class="row">
+            <div class="col-12">
+              <p class="samazon-product-label mt-2">
+                <%= product.name %><br>
+                <label>¥<%= product.price %></label>
+              </p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
