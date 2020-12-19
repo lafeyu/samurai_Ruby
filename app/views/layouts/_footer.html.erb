@@ -1,0 +1,7 @@
+<!--mx-autoクラスを追加することで「Samazon」のロゴを中央寄せにしている点
+<nav>タグにfixed-bottomクラスを指定することでページの下部にフッターを固定している-->
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-bottom mt-5">
+  <%= link_to root_path, class: "navbar-brand mx-auto" do %>
+    <%= image_tag "/images/logo.jpg", class: "img-fuild" %>
+  <% end %>
+</nav>
